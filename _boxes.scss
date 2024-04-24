@@ -1,0 +1,57 @@
+%myStyle{
+    color: white;
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+}
+
+@mixin shapes($theme,$q1,$q2,$q3:none,$q4,$q5:none){
+    width: $q1;
+    height: $q2;
+    border: $q3;
+    background-color: $q4;
+    border-radius: $q5;
+    @extend %myStyle;
+    @if $theme=="dark"{
+        box-shadow: rgb(60, 148, 243) 0px 20px 30px -10px;
+    }@else{
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    }
+}
+
+
+
+.container>div:nth-of-type(1){
+    @include shapes("dark",100px,100px,none,orange );
+}
+.container>div:nth-of-type(2){
+    @include shapes("light",400px,50px ,none , blue );
+}
+.container>div:nth-of-type(3){
+    @include shapes("dark",50px,50px ,none , rgb(122, 122, 255),50% );
+}
+.container>div:nth-of-type(4){
+    @include shapes("light",200px,100px ,5px solid,green ,10px );
+}
+
+
+// @function myFn($num,$w){
+//     @return $num*$w;
+// }
+
+// .myBox{
+//     height: myFn(1,100px);
+//     width: myFn(2,200px);
+//     background-color: red;
+// }
+
+@for $i from 1 through 5 {
+    .myBox>div:nth-of-type(#{$i}){
+      width: 100px * $i;
+      height: 100px;
+      border: #{$i}px solid red;
+      margin-bottom: 10px*$i;
+    }
+  }
+
+ 

@@ -1,0 +1,14 @@
+@mixin abc($a,$b,$p-x,$p-y,$br:10px){
+    padding: $p-y $p-x;
+    border: none;
+    border-radius: $br;
+    background-color: $a;
+    color: $b;
+}
+
+.pri_btn{
+    @include abc(black,white, 15px,10px,20px)
+}
+.secondary_button{
+    @include abc(pink,black,20px,10px)
+}

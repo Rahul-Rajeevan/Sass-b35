@@ -1,0 +1,16 @@
+$primary_color:#cf649a;
+
+nav{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    h1::first-letter{
+        color: $primary_color;
+        font-size: 52px;
+    }
+    >div:nth-of-type(2){
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+}
